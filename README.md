@@ -27,7 +27,7 @@ also see: `https://blog.csdn.net/lazysnake666/article/details/122834329` (Chines
 WORKDIRECTORY="/path/to/your/rproject/workdir/" PORT=8787 PASSWORD=PASSWORD ./run_singularity.sh #change the port number if your if your port is already occupied (for example, another rstudio server is running)
 ```
 
-Your project directory will mount on '/data' in rstudio server
+Your r project directory will mount on '/data' in rstudio server
 
 4) visit `http://your_server_ip:8787`
 
