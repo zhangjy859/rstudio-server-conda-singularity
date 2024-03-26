@@ -9,7 +9,15 @@ PASSWORD=${PASSWORD:-notsafe}
 TMPDIR=${TMPDIR:-tmp}
 #CONTAINER="rstudio_latest.sif"  # path to singularity container (will be automatically downloaded)
 CONTAINER="rstudio_4.2.sif"
-WORKDIRECTORY="${WORKDIRECTORY}-$HOME"
+WORKDIRECTORY="${WORKDIRECTORY:-$HOME}"
+
+if [ ! -f 'database.conf' ]; then
+	printf 'provider=sqlite\ndirectory=/var/lib/rstudio-server\n' > database.conf
+fi
+
+if [ ! -f 'rsession.conf' ]; then
+	echo '' > rsession.conf
+fi
 
 # Set-up temporary paths
 RSTUDIO_TMP="${TMPDIR}/$(echo -n $CONDA_PREFIX | md5sum | awk '{print $1}')"
