@@ -24,7 +24,7 @@ also see: `https://blog.csdn.net/lazysnake666/article/details/122834329` (Chines
 
 3) run script
 ```
-WORKDIRECTORY="/path/to/your/rproject/workdir/" PORT=8787 PASSWORD=PASSWORD ./run_singularity.sh #change the port number if your if your port is already occupied (for example, another rstudio server is running)
+WORKDIRECTORY="/path/to/your/rproject/workdir/" PORT=8787 PASSWORD=PASSWORD ./run_singularity.sh #change the port number if your port is already occupied (for example, another rstudio server is running)
 ```
 
 Your `r project` directory will mount on '/data' in rstudio server
