@@ -1,4 +1,4 @@
-## rstudio-server-singularity
+## rstudio-server-conda-singularity
 Run rstudio-server in conda environment with singularity installed
 
 ## Acknowledgements
