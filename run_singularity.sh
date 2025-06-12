@@ -45,6 +45,7 @@ singularity exec \
 	--bind rsession.conf:/etc/rstudio/rsession.conf \
 	--bind $RSTUDIO_TMP/local-share-rstudio:/home/rstudio/.local/share/rstudio \
 	--bind ${CONDA_PREFIX}:${CONDA_PREFIX} \
+        --bind $RSTUDIO_TMP/data:/home/.session
 	--bind $HOME/.config/rstudio:/home/rstudio/.config/rstudio \
         `# add additional bind mount required for your use-case` \
 	--bind ${WORKDIRECTORY}:/data \
@@ -55,6 +56,6 @@ singularity exec \
 	--env PORT=$PORT \
 	--env USER=$USER \
 	$CONTAINER \
-	/usr/lib/rstudio-server/bin/rserver --auth-none=0 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-address=127.0.0.1 --www-port=$PORT
+	/usr/lib/rstudio-server/bin/rserver --session-default-working-dir=/home/.session  --auth-none=0 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-address=127.0.0.1 --www-port=$PORT
 
 
