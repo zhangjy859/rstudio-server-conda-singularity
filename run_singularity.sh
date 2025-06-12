@@ -44,7 +44,6 @@ singularity exec \
 	--bind database.conf:/etc/rstudio/database.conf \
 	--bind rsession.conf:/etc/rstudio/rsession.conf \
 	--bind $RSTUDIO_TMP/local-share-rstudio:/home/rstudio/.local/share/rstudio \
- 	--bind $RSTUDIO_TMP/data:/home/$(whoami) \
 	--bind ${CONDA_PREFIX}:${CONDA_PREFIX} \
 	--bind $HOME/.config/rstudio:/home/rstudio/.config/rstudio \
         `# add additional bind mount required for your use-case` \
