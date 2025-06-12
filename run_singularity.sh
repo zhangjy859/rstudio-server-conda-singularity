@@ -8,7 +8,7 @@ USER=$(whoami)
 PASSWORD=${PASSWORD:-notsafe}
 TMPDIR=${TMPDIR:-tmp}
 #CONTAINER="rstudio_latest.sif"  # path to singularity container (will be automatically downloaded)
-CONTAINER="rstudio_4.2.sif"
+CONTAINER="rstudio_docker.sif"
 WORKDIRECTORY="${WORKDIRECTORY:-$HOME}"
 
 if [ ! -f 'database.conf' ]; then
@@ -21,14 +21,14 @@ fi
 
 # Set-up temporary paths
 RSTUDIO_TMP="${TMPDIR}/$(echo -n $CONDA_PREFIX | md5sum | awk '{print $1}')"
-mkdir -p $RSTUDIO_TMP/{run,var-lib-rstudio-server,local-share-rstudio}
+mkdir -p $RSTUDIO_TMP/{run,var-lib-rstudio-server,local-share-rstudio,data}
 
 R_BIN=$CONDA_PREFIX/bin/R
 PY_BIN=$CONDA_PREFIX/bin/python
 
 if [ ! -f $CONTAINER ]; then
 	#singularity build --fakeroot $CONTAINER Singularity
-	singularity pull docker://rocker/rstudio:4.2
+	singularity pull docker://rocker/rstudio
 fi
 
 if [ -z "$CONDA_PREFIX" ]; then
@@ -45,6 +45,7 @@ singularity exec \
 	--bind rsession.conf:/etc/rstudio/rsession.conf \
 	--bind $RSTUDIO_TMP/local-share-rstudio:/home/rstudio/.local/share/rstudio \
 	--bind ${CONDA_PREFIX}:${CONDA_PREFIX} \
+        --bind $RSTUDIO_TMP/data:/home/$(whoami) \
 	--bind $HOME/.config/rstudio:/home/rstudio/.config/rstudio \
         `# add additional bind mount required for your use-case` \
 	--bind ${WORKDIRECTORY}:/data \
