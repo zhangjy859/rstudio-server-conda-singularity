@@ -15,7 +15,6 @@ This script use @rocker's rstudio  singularity img (https://github.com/rocker-or
 
 also see: `https://blog.csdn.net/lazysnake666/article/details/122834329` (Chinese)
 
-
 #### bulidin script
 - install dependency
   ```
