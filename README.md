@@ -58,7 +58,7 @@ Available Commands:
   verify      Verify cryptographic signatures attached to an image
   version     Show the version for Singularity
 ```
-Note: If the executable file of go cannot be downloaded normally in the region you are in, please set `use_mirror` to true
+Note: If the executable file of go cannot be downloaded in the region or network you are in, you can try set `use_mirror` to true
 
 ### run this script
 
