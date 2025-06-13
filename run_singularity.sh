@@ -16,7 +16,7 @@ if [ ! -f 'database.conf' ]; then
 fi
 
 if [ ! -f 'rsession.conf' ]; then
-	echo '' > rsession.conf
+	echo 'session-default-working-dir=/home/.session/\nsession-default-new-project-dir=/home/.session/' > rsession.conf
 fi
 
 # Set-up temporary paths
@@ -56,6 +56,6 @@ singularity exec \
 	--env PORT=$PORT \
 	--env USER=$USER \
 	$CONTAINER \
-	/usr/lib/rstudio-server/bin/rserver --session-default-working-dir=/home/.session  --auth-none=0 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-address=127.0.0.1 --www-port=$PORT
+	/usr/lib/rstudio-server/bin/rserver --auth-none=0 --auth-pam-helper-path=pam-helper --server-user=$(whoami) --www-address=127.0.0.1 --www-port=$PORT
 
 
