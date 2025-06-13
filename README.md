@@ -12,6 +12,10 @@ This script use @rocker's rstudio  singularity img (https://github.com/rocker-or
 `https://docs.sylabs.io/guides/3.0/user-guide/installation.html`
 #### without root privilege
 `https://docs.sylabs.io/guides/3.5/admin-guide/installation.html#install-nonsetuid`
+
+also see: `https://blog.csdn.net/lazysnake666/article/details/122834329` (Chinese)
+
+
 #### bulidin script
 - install dependency
   ```
@@ -56,9 +60,6 @@ Available Commands:
   version     Show the version for Singularity
 ```
 Note: If the executable file of go cannot be downloaded normally in the region you are in, please set `use_mirror` to true
-
-
-also see: `https://blog.csdn.net/lazysnake666/article/details/122834329` (Chinese)
 
 ### run this script
 
