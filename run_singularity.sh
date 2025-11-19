@@ -27,8 +27,8 @@ R_BIN=$CONDA_PREFIX/bin/R
 PY_BIN=$CONDA_PREFIX/bin/python
 
 if [ ! -f $CONTAINER ]; then
-	#singularity build --fakeroot $CONTAINER Singularity
-	singularity pull docker://rocker/rstudio
+    singularity pull docker://rocker/rstudio
+	singularity build --fakeroot $CONTAINER rocker/rstudio
 fi
 
 if [ -z "$CONDA_PREFIX" ]; then
