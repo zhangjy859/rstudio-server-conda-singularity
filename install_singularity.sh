@@ -43,12 +43,12 @@ download_and_extract() {
 
 # Download and install Go
 cd "$tmp_dir" || exit 1
-GO_URL=$(curl -s https://go.dev/dl/ | grep -o '/dl/go[0-9.]*.linux-amd64.tar.gz' | head -n1)
 if ! $use_mirror; then
+     GO_URL=$(curl -s https://go.dev/dl/ | grep -o '/dl/go[0-9.]*.linux-amd64.tar.gz' | head -n1)
      GO_URL="https://go.dev${GO_URL}"
 else
-     GO_URL=$(curl -s https://go.dev/dl/ | grep -o '/go[0-9.]*.linux-amd64.tar.gz' | head -n1)
-     GO_URL="https://mirrors.aliyun.com/golang${GO_URL}"
+     GO_URL=$(curl -s https://mirrors.aliyun.com/golang | grep -o 'go1.22[0-9.]*.linux-amd64.tar.gz' | head -n1)
+     GO_URL="https://mirrors.aliyun.com/golang/${GO_URL}"
 fi
 echo $GO_URL
 download_and_extract "$GO_URL" "go.tar.gz" "$install_path"
