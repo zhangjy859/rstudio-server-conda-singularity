@@ -61,7 +61,7 @@ SINGULAR_TAR="https://github.com/apptainer/singularity/releases/download/${SINGU
 download_and_extract "$SINGULAR_TAR" "$tmp_dir/singularity.tar.gz" "$tmp_dir"
 SINGULAR_DIR="$tmp_dir/singularity-${SINGULAR_TAG#v}"
 cd "$SINGULAR_DIR" || exit 1
-./mconfig --prefix="$install_path/singularity" --without-suid 
+./mconfig --without-suid --prefix="$install_path/singularity"
 make -C ./builddir
 make -C ./builddir install
 
