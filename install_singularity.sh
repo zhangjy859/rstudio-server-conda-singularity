@@ -78,3 +78,4 @@ fi
 
 echo "export PATH=\"\$PATH:$install_path/go/bin:$install_path/singularity/bin\"" >> "$config_file"
 echo "Environment variables added to $config_file. Run 'source $config_file' or restart your shell."
+echo "You May Need to install squashfs-tools, eg: conda install conda-forge::squashfs-tools"
