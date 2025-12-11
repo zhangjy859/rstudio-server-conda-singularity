@@ -49,6 +49,7 @@ singularity exec \
 	--bind $HOME/.config/rstudio:/home/rstudio/.config/rstudio \
         `# add additional bind mount required for your use-case` \
 	--bind ${WORKDIRECTORY}:/data \
+	--bind ${WORKDIRECTORY}:${WORKDIRECTORY} \
 	--env CONDA_PREFIX=$CONDA_PREFIX \
 	--env RSTUDIO_WHICH_R=$R_BIN \
 	--env RETICULATE_PYTHON=$PY_BIN \
