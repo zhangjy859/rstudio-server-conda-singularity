@@ -87,3 +87,7 @@ ssh user_name@your_server_ip -L 8787:127.0.0.1:8787
 
 visit http://127.0.0.1:8787
 
+
+### Troubleshooting
+1. Network error/libcurl error
+    You can try downloading the sif file [here](https://mega.nz/file/GNcmVQzB#0bYDqIvQBLvl5-Hl1Q-Ae52DIM0e1C-bMGRqhl-UlAs) to the project folder, rename it to rstudioserver-docker.sif (this image is based on @rocker's image and has been modified), and then try to run it again
